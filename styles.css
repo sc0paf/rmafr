@@ -1,0 +1,94 @@
+body {
+    background-color: #333;
+}
+
+/* label {
+    font-weight: bolder;
+} */
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+
+.uiToggle {
+    font-size: 24px;
+    margin: 0 1em 0 1em;
+}
+
+.active {
+    background-color: green;
+}
+
+.header{
+    background-color: whitesmoke;
+    padding: 0;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-radius: 3px;
+}
+
+.topwrap {
+    background-color: whitesmoke;
+    list-style-type: none;
+    padding: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 3px;
+}
+
+.irow {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.irow > label {
+    padding: 0;
+}
+
+.irow > input {
+    flex: 1;
+}
+
+.irow > input,
+.irow > button {
+    padding: .5em;
+}
+/* comment */
+.frow {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+}
+
+.frow > label {
+    padding: .5em 1em .5em 0;
+}
+
+.frow > input {
+    flex: 1;
+}
+
+.frow > input,
+.frow > button {
+    padding: .5em;
+}
+
+.frow > button {
+    width: 70%;
+}
+
+.main__cont {
+    width: 90vw;
+    margin: auto;
+    text-align: center;
+}

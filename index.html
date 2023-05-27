@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMA FROZEN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="main__cont">
+        <div class="header"><h1>RMA Frozen Sheet</h1></div>
+        <template v-if="admin == true">
+            <div class="header">
+            Dis admin panel
+            </div>
+        </template>
+        <ul class="topwrap">
+        <form>
+            <li class="frow"><label for="route">Route: </label>
+                <select name="route" id="">
+                    <option value="r1">Route 1</option>
+                    <option value="r2">Route 2</option>
+                    <option value="r3">Route 3</option>
+                    <option value="r4">Route 4</option>
+                    <option value="r5">Route 5</option>
+                    <option value="r6">Route 6</option>
+                    <option value="r7">Route 7</option>
+                    <option value="r8">Route 8</option>
+                    <option value="r9">Route 9</option>
+                    <option value="r10">Route 10</option>
+                    <option value="r11">Route 11</option>
+                    <option value="r12">Route 12</option>
+                </select>
+            </li>
+
+            <li class="frow">
+                <label for="account">Account: </label>
+                <input type="text">
+            </li>
+            
+            <input type="radio" id="Vending" value="Vending" v-model="vendOrMart" style="float:left; margin-left: 25%;" />
+            <label for="Vending" style="float: left; ">Vending</label>
+            <input type="radio" id="Market" value="Market" v-model="vendOrMart" />
+            <label for="Market">Market</label>
+        </ul>
+
+            <hr>
+            <div v-if="vendOrMart == 'Vending'" class="topwrap">
+                <button class="uiToggle" @click="asToggle" :class="[isToggled ? 'active' : '']">ADD</button>
+                
+                <button class="uiToggle" @click="asToggle" :class="[!isToggled ? 'active' : '']">REMOVE</button>
+
+               <h1>Show Vending</h1>
+
+                <template v-for="item in items" :key="item.name">
+                    <div class="frow"  v-if="item.in">
+                        <button @click="isToggled ? item.value++ : item.value--">{{ item.name }}</button>
+                        <button style="width: 10%;" @click="isToggled ? item.value = item.value + 6 : item.value = item.value - 6">6</button>
+                        <button style="width: 10%;" @click="isToggled ? item.value = item.value + 10 : item.value = item.value - 10">10</button>
+                        <input type="number" min="0" max="12" v-model="item.value">
+                    </div>
+                    <!-- <li v-if="item.in" class="irow" /> {{ item.name }}
+                     <input type="number" min="0" max="12"> -->
+                </template>
+
+            </div>
+            <div v-if="vendOrMart == 'Market'">
+                <h1>Show Market</h1>
+            </div>
+        </form>
+    
+    <footer id="footer">
+        <button @click="admin = !admin">Add Items</button>
+        <button>order</button>
+        <button>pull</button>
+    </footer>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
