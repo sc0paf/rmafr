@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RMA FROZEN</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="/__/firebase/9.22.1/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 </head>
 <body>
     <div id="app" class="main__cont">
         <div class="header"><h1>RMA Frozen Sheet</h1></div>
         <template v-if="admin == true">
             <div class="header">
-            Dis admin panel
+
+
+                <!-- fix this -->
+                <template v-for="thing in items" :key="thing.name">
+                    <template v-for="(value, key) in thing">
+                        {{value}} {{key}}<br>
+                        <input v-bind="thing.value.key">
+                    </template>
+                </template>
+                <!-- adfgadfg -->
             </div>
         </template>
         <ul class="topwrap">
@@ -77,6 +89,6 @@
     </footer>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
 </body>
 </html>
